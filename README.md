@@ -3,16 +3,20 @@ This applications get data from https://swapi.co . Show a list of planets and de
 The app has a search ,  user can search in the api different planets and also pagination when scroll down the 
 recyclerview.
 
-The architecture is separate by folders, I added Logic, Models, ServerConnection and Views. 
+The architecture is separate by folders, I added Logic, Models, Presenters, ServerConnection and Views. 
 
 In the Logic folder we can find a Singelton class that factory the data from server and convert to client model , and also
 keep the data in memory , to have access always .
+Also in this folder I created an Interactor that makes the request to server and send event with the result on these request.
 
 In Models I have the models of data of the app, you will find two very similar… one to parse the Json from server and other 
 to print data on the views.
 
 In ServerConnection I only have one Interface class using Retrofit where are the calls of the app (Three ..get planets , get 
 more planets with pagination and search)
+
+In Presenters I create a presenter that manage the PlanetListItemActivity that populate the data on view and also manage some 
+server calls (MVP).
 
 And in Views I have some Views helpers to do pagination of recyclerview.
 
